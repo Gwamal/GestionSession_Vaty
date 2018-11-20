@@ -13,7 +13,7 @@
         <title>Devine un nombre</title>
     </head>
     <c:choose>
-        <c:when test="${empty joueur} && ${guess == null}">
+        <c:when test="${empty joueur}">
             <body>
                 <h1>Bienvenue dans notre jeu</h1>
                 <hr/>
@@ -34,7 +34,7 @@
                 <h3>Hello ${joueur}, Devine mon nombre</h3>
 
                 <c:choose>
-                    <c:when test="${empty guess}">
+                    <c:when test="${empty essaiPrec}">
                         
                     </c:when>
                     <c:otherwise>
@@ -44,6 +44,7 @@
                 </c:choose>	
                 <h2>je pense à un nombre compris entre 0 et 100</h2>
                 <form name="guessForm" method="POST" accept-charset="UTF-8" >
+                    <input type="text" name="playerName" value="${joueur}" readonly/>
                     <label>Ta proposition : <input type="number" min="0" max="100" required name="guess"></label> 
                     <input type="SUBMIT" name="action" value="Deviner"><br/>
                 </form>

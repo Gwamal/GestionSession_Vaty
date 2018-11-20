@@ -40,6 +40,7 @@ public class gestionSessionController extends HttpServlet {
         if (guess != null) {
             alea.addEssai();
             if (alea.proposition(Integer.parseInt(guess)).equals("Trouvé")) {
+                request.setAttribute("essaiPrec",guess);
                 request.setAttribute("victoire",true);
             } else {
                 request.setAttribute("nbGuess", alea.getEssai());
@@ -91,6 +92,7 @@ public class gestionSessionController extends HttpServlet {
     }// </editor-fold>
 
 }
+
 
 
 
